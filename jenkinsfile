@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo 'Hello, welcome Brylle pogi!'
+            }
+        }
+
+        stage('Stage 2') {
+            steps {
+                echo 'Wanna proceed?'
+            }
+        }
+
+        stage('Stage 3') {
+            steps {
+                echo 'Nice, keep doing it!'
+            }
+        }
+
+        stage('Stage 4') {
+            steps {
+                echo 'Go go go go!'
+            }
+        }
+
+        stage('Unit Testing') {
+            steps {
+                echo 'Unit testing complete. Great job, Brylle!'
+            }
+        }
+    }
+
+    post {
+        always {
+            deleteDir()
+        }
+        success {
+            echo 'Java build completed successfully.'
+        }
+        failure {
+            echo 'Java build failed. Review the stage logs and test reports.'
+        }
+    }
+}
